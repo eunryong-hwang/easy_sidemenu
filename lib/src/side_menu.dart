@@ -91,8 +91,7 @@ class SideMenu extends StatelessWidget {
               ],
             ),
           ),
-          if (footer != null &&
-              Global.displayModeState.value != SideMenuDisplayMode.compact)
+          if (footer != null)
             Align(alignment: Alignment.bottomCenter, child: footer!),
         ],
       ),
