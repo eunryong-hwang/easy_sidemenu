@@ -83,13 +83,11 @@ class SideMenu extends StatelessWidget {
       decoration: _decoration(style),
       child: Stack(
         children: [
-          SingleChildScrollView(
-            child: Column(
-              children: [
-                if (title != null) title!,
-                ...items,
-              ],
-            ),
+          Column(
+            children: [
+              if (title != null) title!,
+              ...items,
+            ],
           ),
           if (footer != null)
             Align(alignment: Alignment.bottomCenter, child: footer!),
