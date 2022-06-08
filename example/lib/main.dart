@@ -33,6 +33,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   PageController page = PageController();
 
+  var displayMode = SideMenuDisplayMode.open;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
           SideMenu(
             controller: page,
             style: SideMenuStyle(
-              displayMode: SideMenuDisplayMode.auto,
+              displayMode: displayMode,
               hoverColor: Colors.blue[100],
               selectedColor: Colors.lightBlue,
               selectedTitleTextStyle: const TextStyle(color: Colors.white),
@@ -73,11 +75,18 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ],
             ),
-            footer: const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Text(
-                'mohada',
-                style: TextStyle(fontSize: 15),
+            footer: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextButton(
+                onPressed: () {
+                  if (displayMode == SideMenuDisplayMode.open) {
+                    displayMode = SideMenuDisplayMode.compact;
+                  } else {
+                    displayMode = SideMenuDisplayMode.open;
+                  }
+                  setState(() {});
+                },
+                child: const Text("click to collapse"),
               ),
             ),
             items: [
